@@ -7,6 +7,8 @@ const mongoSanitize = require('express-mongo-sanitize');
 const hpp = require('hpp');
 const path = require('path');
 const cookieParser = require('cookie-parser');
+const compression = require('compression');
+
 const tourRouter = require('./routes/tourRoutes');
 const userRouter = require('./routes/userRoutes');
 const viewRouter = require('./routes/viewRoutes');
@@ -62,12 +64,13 @@ app.use(hpp({
 }));
 
 
+app.use(compression());
 
-app.use((req,res,next)=>{
-    // eslint-disable-next-line no-console
-    console.log("first custom middleware");
-    next();
-});
+// app.use((req,res,next)=>{
+//     // eslint-disable-next-line no-console
+//     console.log("first custom middleware");
+//     next();
+// });
 
 //test middleware
 app.use((req,res,next)=>{

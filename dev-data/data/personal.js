@@ -9,12 +9,12 @@ const Review = require('../../models/reviewModel');
 dotenv.config({ path: './../../config.env' });
 
 const DB =  process.env.DATABASE.replace('<PASSWORD>',process.env.DATABASE_PASS);
-console.log(DB);
+//console.log(DB);
 mongoose.connect(DB,{
   useNewUrlParser:true,
   useUnifiedTopology: true
 }).then(() =>{
-  console.log('DB connection successfully');
+  //console.log('DB connection successfully');
 });
 //console.log(process.env);
 const tours = JSON.parse(fs.readFileSync(`${__dirname}/tours.json`,'utf-8')); 
