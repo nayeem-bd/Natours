@@ -17,6 +17,7 @@ const reviewRouter = require('./routes/reviewRoutes');
 const bookingRouter = require('./routes/bookingRoutes');
 const AppError = require('./utils/appError');
 const globalErrorHandler = require('./controllers/errorController');
+const bookingController = require('./controllers/bookingController');
 
 //start express app
 const app = express();
@@ -53,6 +54,8 @@ const limiter = rateLimit({
 });
 
 app.use('/api',limiter);
+
+app.post('/webhook-checkout',express.raw({type:'application/json'}),bookingController.webhookCheckout);
 
 //middleware
 // body parser ,reading data from body into req.body
