@@ -8,6 +8,7 @@ const hpp = require('hpp');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const compression = require('compression');
+const cors = require('cors');
 
 const tourRouter = require('./routes/tourRoutes');
 const userRouter = require('./routes/userRoutes');
@@ -24,7 +25,12 @@ app.enable('trust proxy');
 
 app.set('view engine','pug');
 app.set('views',path.join(__dirname,'views'));
+
+//"node": ">=8.3.0" in package.json node engine
+
 // global middleware
+app.use(cors());
+app.options('*',cors());
 //serving static file
 app.use(express.static(path.join(__dirname,'public')));
 //set security http headers
