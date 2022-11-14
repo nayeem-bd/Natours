@@ -9,6 +9,7 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const compression = require('compression');
 const cors = require('cors');
+const bodyParser = require('body-parser');
 
 const tourRouter = require('./routes/tourRoutes');
 const userRouter = require('./routes/userRoutes');
@@ -53,7 +54,7 @@ const limiter = rateLimit({
     message:'you tries many times.Try again after a hour'
 });
 
-app.post('/webhook-checkout',express.raw({type: 'application/json'}),bookingController.webhookCheckout);
+app.post('/webhook-checkout',bodyParser.raw({type: 'application/json'}),bookingController.webhookCheckout);
 
 app.use('/api',limiter);
 
