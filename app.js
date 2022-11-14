@@ -53,9 +53,10 @@ const limiter = rateLimit({
     message:'you tries many times.Try again after a hour'
 });
 
+app.post('/webhook-checkout',express.raw({type: 'application/json'}),bookingController.webhookCheckout);
+
 app.use('/api',limiter);
 
-app.post('/webhook-checkout',express.raw({type:'*/*'}),bookingController.webhookCheckout);
 
 //middleware
 // body parser ,reading data from body into req.body
