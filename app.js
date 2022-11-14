@@ -9,7 +9,6 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const compression = require('compression');
 const cors = require('cors');
-const bodyParser = require('body-parser');
 
 const tourRouter = require('./routes/tourRoutes');
 const userRouter = require('./routes/userRoutes');
