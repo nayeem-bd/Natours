@@ -77,7 +77,12 @@ exports.webhookCheckout = (req,res)=>{
     //console.log('✅ Success:', event.id);
 
     if(event.type === 'checkout.session.completed'){
-        createBookingCheckout(event.data.object);
+        console.log('reached here in event type');
+        try{
+            createBookingCheckout(event.data.object);
+        }catch(err){
+            console.log('error : ',err.message);
+        }
     }
 
     res.status(200).json({received:true});
