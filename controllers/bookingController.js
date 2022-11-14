@@ -66,7 +66,7 @@ exports.webhookCheckout = (req,res,next)=>{
     console.log('Signature : ',signature);
     let event;
     try{
-        event = stripe.webhooks.constructEvent(req.body,signature,process.env.STRIPE_WEBHOOK_SECRET);
+        event = stripe.webhooks.constructEvent(req.body.toString(),signature,process.env.STRIPE_WEBHOOK_SECRET);
     }catch(err){
         return res.status(400).send(`webhook error: ${err.message}`);
     }
