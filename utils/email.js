@@ -13,10 +13,10 @@ module.exports = class Email{
     newTransport(){
         if(process.env.NODE_ENV === 'production'){
             return nodemailer.createTransport({
-                service:'yahoo',
+                service:'sendgrid',
                 auth:{
-                    user:process.env.SENDINBLUE_USER,
-                    pass:process.env.SENDINBLUE_PASS
+                    user:process.env.SENDGRID_USER,
+                    pass:process.env.SENDGRID_PASS
                 }
             });
         }
