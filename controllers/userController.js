@@ -76,6 +76,7 @@ exports.createUser = (req, res) => {
 };
 
 exports.updateMe = catchAsync(async(req,res,next)=>{
+    // eslint-disable-next-line no-console
     console.log(req.file);
     //1) if body contains password
     if(req.body.password || req.body.passwordConfirm){
