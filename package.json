@@ -4,7 +4,7 @@
   "engines": {
     "node": "^16"
   },
-  "description": "sdfasf slfjdsl flsd",
+  "description": "natours is a website to find a tour.",
   "main": "app.js",
   "scripts": {
     "start": "node server.js",
