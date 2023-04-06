@@ -11,7 +11,7 @@
     "start:dev": "nodemon server.js",
     "start:prod": "NODE_ENV=production nodemon server.js",
     "debug": "ndb server.js",
-    "build":"parcel build ./public/js/index.js --out-dir ./public/js --out-file bundle.js --public-url .",
+    "build": "parcel build ./public/js/index.js --out-dir ./public/js --out-file bundle.js --public-url .",
     "watch:js": "parcel watch ./public/js/index.js --out-dir ./public/js --out-file bundle.js --public-url .",
     "build:js": "parcel build ./public/js/index.js --out-dir ./public/js --out-file bundle.js --public-url ."
   },
@@ -24,6 +24,7 @@
     "compression": "^1.7.4",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
+    "deasync": "^0.1.28",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
     "express-mongo-sanitize": "^2.2.0",
