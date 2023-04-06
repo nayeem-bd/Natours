@@ -2,8 +2,8 @@
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 
-process.on('uncaughtException',err=>{
-  console.log(err.name,err.message);
+process.on('uncaughtException', err => {
+  console.log(err.name, err.message);
   process.exit(1);
 });
 
@@ -12,17 +12,20 @@ const app = require('./app');
 
 
 
-const DB = process.env.DATABASE.replace('<PASSWORD>',process.env.DATABASE_PASS);
-mongoose.connect(DB,{
-  useNewUrlParser:true,
+const DB = process.env.DATABASE.replace('<PASSWORD>', process.env.DATABASE_PASS);
+mongoose.connect(DB, {
+  useNewUrlParser: true,
   useUnifiedTopology: true
-}).then(() =>{
+}).then(() => {
   console.log('DB connection successfully');
-});
+}).catch((err) => {
+  console.log('error', err);
+}
+);
 //console.log(process.env);
 
 
- const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3000;
 const server = app.listen(port, '0.0.0.0', () => {
   console.log(`App running on port ${port}`);
 });
@@ -30,16 +33,16 @@ const server = app.listen(port, '0.0.0.0', () => {
 //   console.log(`App running on port ${port}`);
 // });
 
-process.on('unhandledRejection',err =>{
-  console.log(err.name,err.message);
-  server.close(()=>{
-      process.exit(1);
+process.on('unhandledRejection', err => {
+  console.log(err.name, err.message);
+  server.close(() => {
+    process.exit(1);
   });
 });
 
-process.on('SIGTERM',()=>{
+process.on('SIGTERM', () => {
   console.log('SIGTERM RECEIVED. Shutting down gracefully');
-  server.close(()=>{
+  server.close(() => {
     console.log('Proces terminated!');
   });
 });
