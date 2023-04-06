@@ -2,7 +2,7 @@
   "name": "natours",
   "version": "1.0.0",
   "engines": {
-    "node": "^16"
+    "node": ">=16"
   },
   "description": "natours is a website to find a tour.",
   "main": "app.js",
